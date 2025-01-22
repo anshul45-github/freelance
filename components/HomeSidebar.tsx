@@ -34,23 +34,23 @@ export function SidebarDemo() {
       ),
     },
     {
-      label: "Upload Talent",
+      label: "Logout",
       href: "#",
       icon: (
-        <IoBriefcaseOutline className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+        <IconArrowLeft className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
   ];
   const [open, setOpen] = useState(false);
   return (
-    <div className="h-screen z-50" >
+    <div className="z-50" >
       {/* Sidebar */}
       <Sidebar
         open={open}
         setOpen={setOpen}
         animate={true}
       >
-        <SidebarBody className="justify-between gap-10 z-50">
+        <SidebarBody className="justify-between gap-10 z-50 md:rounded-3xl md:m-7">
           <div className="flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
             <>
               <Logo />
