@@ -8,13 +8,14 @@ export function HeroSection() {
         <AuroraBackground className="relative w-screen h-screen flex items-center justify-center">
           <motion.div
             initial={{ opacity: 0.0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0, scale: 1.05 }}
             transition={{
               delay: 0.3,
               duration: 0.8,
               ease: "easeInOut",
+              type: "spring",
             }}
-            className="relative flex flex-col gap-4 items-center justify-center px-4"
+            className="relative flex flex-col gap-4 items-center justify-center w-screen h-screen"
           >
             <div className="text-3xl md:text-5xl font-bold dark:text-white text-center">
                 Discover the Best Talent, Anytime, Anywhere
