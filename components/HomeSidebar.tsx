@@ -64,7 +64,7 @@ export function SidebarDemo() {
           <div>
             <SidebarLink
               link={{
-                label: "I love Anshul",
+                label: "profile",
                 href: "/profile",
                 icon: (
                   <Image
@@ -106,3 +106,4 @@ export const Logo = () => {
 
 
 export default SidebarDemo;
+
