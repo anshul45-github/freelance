@@ -34,7 +34,7 @@ export function SidebarDemo() {
       ),
     },
     {
-      label: "Provide Talent",
+      label: "Upload Talent",
       href: "#",
       icon: (
         <IoBriefcaseOutline className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
@@ -64,11 +64,11 @@ export function SidebarDemo() {
           <div>
             <SidebarLink
               link={{
-                label: "profile",
+                label: "Profile",
                 href: "/profile",
                 icon: (
                   <Image
-                    src="https://assets.aceternity.com/manu.png"
+                    src="/user.png"
                     className="h-7 w-7 flex-shrink-0 rounded-full"
                     width={50}
                     height={50}

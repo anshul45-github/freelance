@@ -8,11 +8,12 @@ export function HeroSection() {
         <AuroraBackground className="relative w-screen h-screen flex items-center justify-center">
           <motion.div
             initial={{ opacity: 0.0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{
               delay: 0.3,
               duration: 0.8,
               ease: "easeInOut",
+              type: "spring",
             }}
             className="relative flex flex-col gap-4 items-center justify-center px-4"
           >
@@ -22,15 +23,9 @@ export function HeroSection() {
             <div className="font-extralight text-base md:text-4xl dark:text-neutral-200 py-4">
                 Hire verified experts in just a few clicks.
             </div>
-            <div className="flex gap-4">
-                <button className="bg-[#21e065] dark:bg-white rounded-full w-fit text-white dark:text-black px-4 py-2">
-                  Hire now
-                </button>
-                <button className="bg-black dark:bg-white rounded-full w-fit text-white dark:text-black px-4 py-2">
-                  Debug now
-                </button>
-            </div>
+            
           </motion.div>
         </AuroraBackground>
+        
       );
 }
