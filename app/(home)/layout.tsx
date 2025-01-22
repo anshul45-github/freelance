@@ -1,4 +1,3 @@
-import HomeNavbar from "@/components/HomeNavbar"
 import HomeSidebar from "@/components/HomeSidebar"
 
 const HomeLayout = ({ children } : { children: React.ReactNode }) => {

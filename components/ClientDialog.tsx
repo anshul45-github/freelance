@@ -16,6 +16,7 @@ interface ClientDialogProps {
     isValid: boolean;
     isSubmitting: boolean;
 }
+
 export function ClientDialog({ isValid, isSubmitting }: ClientDialogProps) {
   const [companyName, setCompanyName] = useState('');
   const [companyDescription, setCompanyDescription] = useState('');
@@ -23,56 +24,60 @@ export function ClientDialog({ isValid, isSubmitting }: ClientDialogProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const response = await fetch('/api/register-client', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ companyName, companyDescription, contactEmail }),
-    });
-    if (response.ok) {
-      // Handle successful registration
-    } else {
-      // Handle error
+    const data = { companyName, companyDescription, contactEmail };
+    try {
+      const response = await fetch('/api/client', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      const result = await response.json();
+      console.log('Data saved successfully:', result);
+    } catch (error) {
+      console.error('Error saving data:', error);
     }
   };
 
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline" disabled={!isValid || isSubmitting}>Join as Client</Button>
+        <Button variant="outline" disabled={!isValid || isSubmitting}>Register as Client</Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Join as Client</DialogTitle>
+          <DialogTitle>Register as Client</DialogTitle>
           <DialogDescription>
-            Please fill your contact information to join as a client.
+            Please fill your company information to register as a client.
           </DialogDescription>
         </DialogHeader>
-        <form onSubmit={handleSubmit} className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="companyName" className="text-right">
-              Company Name
-            </Label>
-            <Input id="companyName" value={companyName} onChange={(e) => setCompanyName(e.target.value)} placeholder="Company Name" className="col-span-3" />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="companyDescription" className="text-right">
-              Company Description
-            </Label>
-            <Input id="companyDescription" value={companyDescription} onChange={(e) => setCompanyDescription(e.target.value)} placeholder="A brief description about the company you are affiliated with" className="col-span-3" />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="contactEmail" className="text-right">
-              Contact Email
-            </Label>
-            <Input id="contactEmail" value={contactEmail} onChange={(e) => setContactEmail(e.target.value)} placeholder="Contact Email" className="col-span-3" />
+        <form onSubmit={handleSubmit}>
+          <div className="grid gap-4 py-4">
+            <div className="grid grid-cols-4 items-center gap-4">
+              <Label htmlFor="companyName" className="text-right">
+                Company Name
+              </Label>
+              <Input id="companyName" placeholder="Your company name" className="col-span-3" value={companyName} onChange={(e) => setCompanyName(e.target.value)} />
+            </div>
+            <div className="grid grid-cols-4 items-center gap-4">
+              <Label htmlFor="companyDescription" className="text-right">
+                Company Description
+              </Label>
+              <Input id="companyDescription" placeholder="A brief description about your company" className="col-span-3" value={companyDescription} onChange={(e) => setCompanyDescription(e.target.value)} />
+            </div>
+            <div className="grid grid-cols-4 items-center gap-4">
+              <Label htmlFor="contactEmail" className="text-right">
+                Contact Email
+              </Label>
+              <Input id="contactEmail" placeholder="Your contact email" className="col-span-3" value={contactEmail} onChange={(e) => setContactEmail(e.target.value)} />
+            </div>
           </div>
           <DialogFooter>
-            <Button type="submit">Save changes</Button>
+            <Button type="submit" disabled={!isValid || isSubmitting}>Save changes</Button>
           </DialogFooter>
         </form>
       </DialogContent>
     </Dialog>
-  );
+  )
 }
