@@ -7,7 +7,7 @@ const HomeLayout = ({ children } : { children: React.ReactNode }) => {
             <div className="fixed z-50">
                 <HomeSidebar />
             </div>
-            <div className="absolute left-[60px] z-0">
+            <div className="left-[60px] z-0">
                 {children}
             </div>
         </div>
