@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export function HeroSection() {
     return (
-        <AuroraBackground>
+        <AuroraBackground >
           <motion.div
             initial={{ opacity: 0.0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
