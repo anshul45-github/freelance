@@ -8,6 +8,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { TalentDialog } from "@/components/TalentDialog";
+import { ClientDialog } from "@/components/ClientDialog";
 
 const formSchema = z.object({
     name: z.string().min(1, {
@@ -53,10 +54,8 @@ const Register = () => {
                         )} />
                         <div className="flex items-center gap-4">
                             <TalentDialog isSubmitting={isSubmitting} isValid={isValid} />
+                            <ClientDialog isSubmitting={isSubmitting} isValid={isValid} />
                             
-                            <Button type="submit" variant={"default"} disabled={!isValid || isSubmitting}>
-                                Join as Client
-                            </Button>
                         </div>
                     </form>
                 </Form>
