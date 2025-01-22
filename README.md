@@ -21,3 +21,20 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+
+
+## Env file Example
+
+First, run the development server:
+
+```bash
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_YXJ0aXN0aWMtaGFnZmlzaC04LmNsZXJrLmFjY291bnRzLmRldiQ
+CLERK_SECRET_KEY=sk_test_xZcqAXtCQlHiuaD6jSwvqQagQ7dPhpgQeFGNFeFTAh
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/register
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/register
+
+MONGODB_URI="mongodb+srv://bb:dxfgchjxcv@cluster0d.ydn74.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0d"
+```
