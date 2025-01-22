@@ -1,31 +1,5 @@
+import { talents } from "@/lib/models/talents";
 import { TalentCard } from "./TalentCard";
-
-const talents = [
-    {
-      id: '1',
-      name: 'Winston Smith',
-      photo: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7',
-      skills: ['Manufacturing', 'Maintenance'],
-      description: 'Dedicated worker with 5 years of manufacturing experience. Specializes in machinery maintenance and quality control.',
-      approved: true
-    },
-    {
-      id: '2',
-      name: 'Julia Dixon',
-      photo: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e',
-      skills: ['Agriculture', 'Labor'],
-      description: 'Agricultural specialist with expertise in sustainable farming practices and crop management.',
-      approved: true
-    },
-    {
-      id: '3',
-      name: 'Thomas Anderson',
-      photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e',
-      skills: ['Construction', 'Maintenance'],
-      description: 'Skilled construction worker with experience in building maintenance and structural repairs.',
-      approved: true
-    }
-  ];
 
 export const TalentList = () => {
     return (
