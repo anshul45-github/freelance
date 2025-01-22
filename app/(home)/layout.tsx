@@ -1,12 +1,15 @@
 import HomeNavbar from "@/components/HomeNavbar"
+import HomeSidebar from "@/components/HomeSidebar"
 
 const HomeLayout = ({ children } : { children: React.ReactNode }) => {
     return (
-        <div className="h-full">
-            <div className="h-[80px] w-full">
-                <HomeNavbar />
+        <div className="">
+            <div className="fixed z-50">
+                <HomeSidebar />
             </div>
-            {children}
+            <div className="absolute left-[60px] z-0">
+                {children}
+            </div>
         </div>
     )
 }
