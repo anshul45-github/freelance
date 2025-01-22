@@ -160,39 +160,37 @@ import {
   IconSettings,
   IconUserBolt,
 } from "@tabler/icons-react";
+import { GoHome } from "react-icons/go";
+import { LuHandshake } from "react-icons/lu";
+import { IoBriefcaseOutline } from "react-icons/io5";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import LogoImage from '@/public/Logo.png';
 import { cn } from "@/lib/utils";
+
 
 export function SidebarDemo() {
   const links = [
     {
-      label: "Dashboard",
-      href: "#",
+      label: "Home",
+      href: "/",
       icon: (
-        <IconBrandTabler className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+        <GoHome className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
     {
-      label: "Profile",
-      href: "#",
+      label: "Hire",
+      href: "/hire",
       icon: (
-        <IconUserBolt className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+        <LuHandshake className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
     {
-      label: "Settings",
+      label: "Provide Talent",
       href: "#",
       icon: (
-        <IconSettings className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
-      ),
-    },
-    {
-      label: "Logout",
-      href: "#",
-      icon: (
-        <IconArrowLeft className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+        <IoBriefcaseOutline className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
   ];
@@ -204,10 +202,6 @@ export function SidebarDemo() {
         open={open}
         setOpen={setOpen}
         animate={true}
-        // className={cn(
-        //   "fixed top-0 left-0 h-screen bg-gray-100 dark:bg-neutral-800 z-50 transition-transform duration-300",
-        //   open ? "translate-x-0" : "-translate-x-full"
-        // )}
       >
         <SidebarBody className="justify-between gap-10 z-50">
           <div className="flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
@@ -223,8 +217,8 @@ export function SidebarDemo() {
           <div>
             <SidebarLink
               link={{
-                label: "Manu Arora",
-                href: "#",
+                label: "I love Anshul",
+                href: "/profile",
                 icon: (
                   <Image
                     src="https://assets.aceternity.com/manu.png"
@@ -248,16 +242,16 @@ export function SidebarDemo() {
 export const Logo = () => {
   return (
     <Link
-      href="#"
+      href="/"
       className="font-normal flex space-x-2 items-center text-sm text-black py-1 relative z-100"
     >
-      <div className="h-5 w-6 bg-black dark:bg-white rounded-br-lg rounded-tr-sm rounded-tl-lg rounded-bl-sm flex-shrink-0" />
+      <Image src={LogoImage} alt="Logo" className="h-7 w-[28px]" />
       <motion.span
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="font-medium text-black dark:text-white whitespace-pre"
+        className="font-medium text-black dark:text-white whitespace-pre text-2xl"
       >
-        Acet Labs
+        Freelance
       </motion.span>
     </Link>
   );
