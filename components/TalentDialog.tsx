@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { UploadDropzone } from "@uploadthing/react";
 
 interface TalentDialogProps {
     isValid: boolean;
@@ -48,7 +49,13 @@ export function TalentDialog({ isValid, isSubmitting }: TalentDialogProps) {
             </Label>
             <Input id="description" placeholder="A brief description about yourself" className="col-span-3" />
           </div>
-        </div>
+            <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="skills" className="text-right">
+              Skills
+            </Label>
+            <Input id="skills" placeholder="Your skills (e.g., JavaScript, React)" className="col-span-3" />
+            </div>
+          </div>
         <DialogFooter>
           <Button type="submit">Save changes</Button>
         </DialogFooter>
