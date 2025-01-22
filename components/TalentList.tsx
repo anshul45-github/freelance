@@ -1,4 +1,4 @@
-import { talents } from "@/lib/models/talents";
+import { talents } from "@/lib/model/talents";
 import { TalentCard } from "./TalentCard";
 
 export const TalentList = () => {

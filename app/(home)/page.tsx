@@ -3,6 +3,7 @@
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { InteractiveHoverButton } from "@/components/ui/home-button";
 
 export default function Home() {
   return (
@@ -74,8 +75,60 @@ export default function Home() {
       </div>
 
       {/* Other Sections */}
-      <div className="flex h-[100vh] bg-[#254f1a]"></div>
-      <div className="flex h-[100vh] bg-[#e9c0e9]"></div>
+      <div className="flex h-[100vh] bg-[#254f1a] items-center justify-center p-10">
+        <div>
+          <div className="flex flex-col gap-3 items-center justify-center text-center h-[50%] text-[#d2e823] text-5xl md:text-8xl font-bold px-12">
+            Unlock Top Talent: 
+            <br/>Your Perfect Match Awaits Here!
+          </div>
+          <div className="flex items-center justify-center py-12">
+            <InteractiveHoverButton>Find Talent</InteractiveHoverButton>
+          </div>
+        </div>
+        <div>
+          <CardContainer className="inter-var">
+              <CardBody className="relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1]  w-auto sm:w-[30rem] h-auto rounded-xl p-6   ">
+              
+                <CardItem translateZ="100" className="w-full mt-4">
+                  <Image
+                    src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    height="1000"
+                    width="1000"
+                    className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+                    alt="thumbnail"
+                  />
+                </CardItem>
+              </CardBody>
+            </CardContainer>
+        </div>
+      </div>
+      <div className="flex h-[100vh] bg-[#e9c0e9] items-center justify-center">
+        <div>
+          <div className="flex flex-col gap-3 items-center justify-center text-center h-[50%] text-[#502274] text-5xl md:text-8xl font-bold px-12">
+            Showcase Your Talent: <br /> Upload and Shine!
+          </div>
+          <div className="flex items-center justify-center py-12">
+            <InteractiveHoverButton>Apply Now</InteractiveHoverButton>
+          </div>
+        </div>
+  
+        <div>
+          <CardContainer className="inter-var">
+              <CardBody className="relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1]  w-auto sm:w-[30rem] h-auto rounded-xl p-6   ">
+              
+                <CardItem translateZ="100" className="w-full mt-4">
+                  <Image
+                    src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    height="1000"
+                    width="1000"
+                    className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+                    alt="thumbnail"
+                  />
+                </CardItem>
+              </CardBody>
+            </CardContainer>
+        </div>
+      </div>
     </div>
   );
 }

@@ -4,7 +4,7 @@ import { TalentList } from "@/components/TalentList";
 import { Boxes } from "@/components/ui/background-boxes";
 import { ExpandableCardDemo } from "@/components/ui/expandable-card";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
-import { words } from "@/lib/models/words";
+import { words } from "@/lib/model/words";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
