@@ -1,21 +1,14 @@
-import mongoose from 'mongoose';
+const { MongoClient } = require('mongodb');
 
-let isConnected = false;// Variable to track the connection status
-
-export const connectToDB = async () => {
-  mongoose.set('strictQuery', true);
-
-  if(!process.env.URI) return console.log('MONGODB_URI is not defined');
-
-  if(isConnected) return console.log('=> using existing database connection');
-
-  try {
-    await mongoose.connect(process.env.URI);
-
-    isConnected = true;
-
-    console.log('MongoDB Connected');
-  } catch (error) {
-    console.log(error)
-  }
+export async function connectToDatabase() {
+  const url = 'mongodb://localhost:27017';
+  const client = new MongoClient(url);
+  
+  const dbName = 'users';
+  
+  await client.connect();
+  console.log('Connected successfully to server');
+  
+  const db = client.db(dbName);
+  const collection = db.collection('talents');
 }

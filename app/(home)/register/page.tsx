@@ -6,14 +6,18 @@ import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel } fr
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
+import { TalentDialog } from "@/components/TalentDialog";
 
 const formSchema = z.object({
     name: z.string().min(1, {
-      message: "Name must be atleast 1 character long",
+      message: "Name must be atleast 1 character",
     }),
-  })
+})
 
 const Register = () => {
+    const router = useRouter();
+    
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -24,8 +28,9 @@ const Register = () => {
     const { isSubmitting, isValid } = form.formState;
 
     const onSubmit = (values : z.infer<typeof formSchema>) => {
-        console.log(values);
+        
     }
+
     return (
         <div className='max-w-5xl mx-auto flex md:items-center h-full p-6'>
             <div className="w-full md:w-1/2 mt-20">
@@ -47,9 +52,8 @@ const Register = () => {
                             </FormItem>
                         )} />
                         <div className="flex items-center gap-4">
-                            <Button type="button" variant={"default"} disabled={!isValid || isSubmitting}>
-                                Join as Talent
-                            </Button>
+                            <TalentDialog isSubmitting={isSubmitting} isValid={isValid} />
+                            
                             <Button type="submit" variant={"default"} disabled={!isValid || isSubmitting}>
                                 Join as Client
                             </Button>
