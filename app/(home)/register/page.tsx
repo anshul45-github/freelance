@@ -4,11 +4,9 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-import { TalentDialog } from "@/components/TalentDialog";
-import { ClientDialog } from "@/components/ClientDialog";
+import toast from "react-hot-toast";
 
 const formSchema = z.object({
     name: z.string().min(1, {
@@ -24,16 +22,33 @@ const Register = () => {
         defaultValues: {
           name: "",
         },
-      })
+    })
 
     const { isSubmitting, isValid } = form.formState;
 
-    const onSubmit = (values : z.infer<typeof formSchema>) => {
-        
-    }
+    const onSubmit = async (values : z.infer<typeof formSchema>) => {
+        try {
+            const response = await fetch("/api/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(values),
+            });
+
+            if(response.ok) {
+                router.push("/");
+            } else {
+                toast.error("Failed to register");
+            }
+        }
+        catch(e) {
+            toast.error("Failed to register");
+        }
+    };
 
     return (
-        <div className='max-w-5xl mx-auto flex md:items-center h-full p-6'>
+        <div className='max-w-5xl mx-auto flex md:items-center md:justify-center h-full p-6'>
             <div className="w-full md:w-1/2 mt-20">
                 <h1 className="text-2xl">
                     Register!
@@ -48,15 +63,13 @@ const Register = () => {
                                 <FormLabel>Name</FormLabel>
                                 <FormControl><Input disabled={isSubmitting} placeholder="Enter your name" {...field} /></FormControl>
                                 <FormDescription>
-                                    Who do you register as? (Client/Talent)
+                                    Avoid registering with a fake name. We want to know who you are!
                                 </FormDescription>
                             </FormItem>
                         )} />
-                        <div className="flex items-center gap-4">
-                            <TalentDialog isSubmitting={isSubmitting} isValid={isValid} />
-                            <ClientDialog isSubmitting={isSubmitting} isValid={isValid} />
-                            
-                        </div>
+                        <Button type="submit" disabled={!isValid || isSubmitting}>
+                            Continue
+                        </Button>
                     </form>
                 </Form>
             </div>
